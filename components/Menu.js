@@ -1,3 +1,5 @@
+"use strict";
+
 // This is the data we will be using, study it but don't change anything, yet.
 
 let menuItems = [
@@ -19,6 +21,12 @@ let menuItems = [
   </div>
 
   The 'menuMaker' takes an array of menu items as its only argument.
+*/
+const menuMaker = (arr) => {
+  
+};
+
+/*
 
   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
   Add those items to the <ul>
