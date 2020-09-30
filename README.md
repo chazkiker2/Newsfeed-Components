@@ -43,6 +43,9 @@ In this project we are going to be building a news feed reader. The goal is to h
 
 * Follow the instructions found in the Menu.js file to complete the JavaScript functionality.
 
+
+
+
 ### Stretch Goals
 
 If you complete the main goals of the page let's play around with some cool animation libraries.

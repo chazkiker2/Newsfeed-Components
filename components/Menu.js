@@ -24,8 +24,40 @@ let menuItems = [
   The 'menuMaker' takes an array of menu items as its only argument.
 */
 const menuMaker = (arr) => {
+  // Instantiate elements
+  const menuDiv = document.createElement("div");
+  const ul = document.createElement("ul");
+  const liArr = [];
+  for (let i=0; i<menuItems.length; i++) {
+    liArr.push(document.createElement("li"));
+    liArr[i].textContent = arr[i];
+  }
+  // debugger;
+
+  // structure
+  menuDiv.appendChild(ul);
+  liArr.forEach( li => {
+    ul.appendChild(li);
+  });
+
+  // classes
+  menuDiv.classList.add("menu");
+
+  // inner text
+  
+
+  // menu button
+  const menuBtn = document.querySelector("img.menu-button");
+  menuBtn.addEventListener("click", ()=> {
+    menuDiv.classList.toggle("menu--open");
+  });
+
+  return menuDiv;
   
 };
+
+const header = document.querySelector("div.header");
+header.appendChild(menuMaker(menuItems))
 
 /*
 
