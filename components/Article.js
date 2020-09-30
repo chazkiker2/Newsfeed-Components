@@ -1,3 +1,6 @@
+// @ts-check
+"use strict";
+
 import {data} from "./ArticleData";
 
 /*
@@ -22,9 +25,44 @@ const articleMaker = (article) => {
   const p1 = document.createElement("p");
   const p2 = document.createElement("p");
   const p3 = document.createElement("p");
+  const span = document.createElement("span");
 
+  //Structure elements
+  div.appendChild(h2);
+  div.appendChild(pDate);
+  div.appendChild(p1);
+  div.appendChild(p2);
+  div.appendChild(p3);
+  div.appendChild(span);
+
+  // add classes
+  div.classList.add("article");
+  pDate.classList.add("date");
+  span.classList.add("expandButton");
+
+  // textContent
+  h2.textContent = article.title;
+  pDate.textContent = article.date;
+  p1.textContent = article.firstParagraph;
+  p2.textContent = article.secondParagraph;
+  p3.textContent = article.thirdParagraph;
+  span.textContent = "+";
+
+  // span event listener 
+  span.addEventListener("click", (e) => {
+    div.classList.toggle("article-open");
+  });
   
+  return div;
 };
+/* 
+  <div class="article">
+    <h2>{title of the article}</h2>
+    <p class="date">{date of the article}</p>
+    {three separate paragraph elements}
+    <span class="expandButton">+</span>
+  </div> 
+*/
 
 
 /*
