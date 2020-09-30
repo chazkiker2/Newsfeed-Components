@@ -32,7 +32,7 @@ import {data} from "./ArticleData";
 */
 const articleMaker = (article) => {
   // Instantiate Elements
-  const div = document.createElement("div");
+  const articleDiv = document.createElement("div");
   const h2 = document.createElement("h2");
   const pDate = document.createElement("p");
   const p1 = document.createElement("p");
@@ -41,15 +41,15 @@ const articleMaker = (article) => {
   const span = document.createElement("span");
 
   //Structure elements
-  div.appendChild(h2);
-  div.appendChild(pDate);
-  div.appendChild(p1);
-  div.appendChild(p2);
-  div.appendChild(p3);
-  div.appendChild(span);
+  articleDiv.appendChild(h2);
+  articleDiv.appendChild(pDate);
+  articleDiv.appendChild(p1);
+  articleDiv.appendChild(p2);
+  articleDiv.appendChild(p3);
+  articleDiv.appendChild(span);
 
   // add classes
-  div.classList.add("article");
+  articleDiv.classList.add("article");
   pDate.classList.add("date");
   span.classList.add("expandButton");
 
@@ -63,10 +63,10 @@ const articleMaker = (article) => {
 
   // span event listener 
   span.addEventListener("click", () => {
-    div.classList.toggle("article-open");
+    articleDiv.classList.toggle("article-open");
   });
   
-  return div;
+  return articleDiv;
 };
 
 data.forEach(article => {
