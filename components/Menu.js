@@ -1,3 +1,8 @@
+// @ts-check
+"use strict";
+
+import { gsap } from "gsap";
+
 // This is the data we will be using, study it but don't change anything, yet.
 
 let menuItems = [
@@ -19,6 +24,55 @@ let menuItems = [
   </div>
 
   The 'menuMaker' takes an array of menu items as its only argument.
+*/
+const menuMaker = (arr) => {
+  // Instantiate elements
+  const menuDiv = document.createElement("div");
+  const ul = document.createElement("ul");
+  const liArr = [];
+  for (let i=0; i<menuItems.length; i++) {
+    liArr.push(document.createElement("li"));
+    liArr[i].textContent = arr[i];
+  }
+  // debugger;
+
+  // structure
+  menuDiv.appendChild(ul);
+
+  liArr.forEach( li => {
+    ul.appendChild(li);
+  });
+
+  // classes
+  menuDiv.classList.add("menu");
+
+  // inner text
+  
+
+  // menu button
+  const menuBtn = document.querySelector("img.menu-button");
+  // menuBtn.addEventListener("click", ()=> {
+  //   menuDiv.classList.toggle("menu--open");
+  // });
+  menuBtn.addEventListener("click", ()=> {
+
+    if (menuDiv.classList.contains("menu--open")) {
+      animateMenuOut();
+      menuDiv.classList.remove("menu--open");
+    } else {
+      menuDiv.classList.add("menu--open");
+      animateMenuIn();
+    }
+  });
+
+  return menuDiv;
+  
+};
+
+const header = document.querySelector("div.header");
+header.appendChild(menuMaker(menuItems))
+
+/*
 
   Step 2: Inside the function, iterate over the array creating a list item <li> element for each item in the array.
   Add those items to the <ul>
@@ -31,3 +85,16 @@ let menuItems = [
 
   Step 6: Use 'menuMaker' to create a menu using the 'menuItems' array, and append the returned menu to the header.
 */
+
+function animateMenuOut() {
+  gsap.to("div.menu", {duration: 2, x: -350});
+}
+function animateMenuIn() {
+  gsap.to("div.menu", {duration: 2, x: 0});
+}
+
+
+// const rect = header.getBoundingClientRect();
+// console.log(rect.top, rect.right, rect.bottom, rect.left);
+// // 0 830 75 0
+// gsap.to("div.menu", {duration: 2, x: -830});
